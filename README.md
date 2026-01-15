@@ -1,3 +1,6 @@
+# Descripción
+    Esta App es un clon de chat desarrollado por con Angular (Standalone). En la misma se plantea el uso de un chat interactivo.
+    
 ## 📂 Estructura del proyecto
 src/app/
 │── core/
@@ -51,7 +54,7 @@ Estilo visual similar a WhatsApp Web
 ## ▶️ Cómo ejecutar el proyecto
 
 1️⃣ Clonar el repositorio
-git clone <url-del-repositorio>
+git clone <https://github.com/arielDure/chat-angular>
 cd chat-angular
 
 2️⃣ Instalar dependencias
