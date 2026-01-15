@@ -1,6 +1,6 @@
 import { signal } from '@angular/core';
-import { Chat } from '../model/chat-model';
-import { Message } from '../model/message-model';
+import { Chat } from '../../model/chat-model';
+import { Message } from '../../model/message-model';
 
 export const chatsSignal = signal<Chat[]>([
   {

@@ -1,1 +1,11 @@
-<router-outlet />
+<div class="app-layout">
+
+  <!-- PANEL IZQUIERDO: SIEMPRE VISIBLE -->
+  <app-chat-list class="sidebar"></app-chat-list>
+
+  <!-- PANEL DERECHO: CAMBIA CON RUTAS -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

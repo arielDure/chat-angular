@@ -1,1 +1,28 @@
-<p>new-chat works!</p>
+<div class="new-chat-container">
+   <button class="back-btn" (click)="volver()">← Volver</button>
+  <h2>Crear nuevo chat</h2>
+
+  <form [formGroup]="form" (ngSubmit)="create()">
+    
+    <div class="form-group">
+      <label for="name">Nombre del contacto</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Ej: Juan Pérez"
+      />
+
+      @if (form.get('name')?.invalid && form.get('name')?.touched) {
+        <small class="error">
+          El nombre es obligatorio
+        </small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">
+      Crear chat
+    </button>
+
+  </form>
+</div>

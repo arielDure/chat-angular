@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { addMessage, messagesSignal } from '../../core/store/chat.store';
+import { addMessage, messagesSignal } from '../../core/store/chat-store/chat-store';
 
 @Component({
   standalone: true,
@@ -9,13 +9,18 @@ import { addMessage, messagesSignal } from '../../core/store/chat.store';
   templateUrl: './chat-room.html',
   styleUrl: './chat-room.css',
 })
-export class ChatRoomComponent {
-  chatId = Number(this.route.snapshot.paramMap.get('id'));
+export class ChatRoomComponent implements OnInit {
+
+  chatId!: number;
   messages = messagesSignal;
 
   messageControl = new FormControl('', Validators.required);
 
   constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.chatId = Number(this.route.snapshot.paramMap.get('id'));
+  }
 
   send() {
     if (this.messageControl.invalid) return;

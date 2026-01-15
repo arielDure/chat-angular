@@ -1,20 +1,40 @@
-<div class="sidebar">
-  <h2>Chats</h2>
+<div class="wa-sidebar">
 
-  @for (chat of chats(); track chat.id) {
-    <a [routerLink]="['/chats', chat.id]" class="chat-item">
-      <img [src]="chat.avatar" />
-      <div>
-        <strong>{{ chat.name }}</strong>
+  <!-- HEADER -->
+  <header class="wa-sidebar-header">
+    <h2>Chats</h2>
+  </header>
 
-        @if (chat.status === 'online') {
-          <span class="online">Online</span>
-        } @else {
-          <span class="offline">Offline</span>
-        }
-      </div>
-    </a>
-  }
+  <!-- LISTA DE CHATS -->
+  <div class="wa-chat-list">
+    @for (chat of chats(); track chat.id) {
+      <a
+        class="wa-chat-item"
+        [routerLink]="['/chats', chat.id]"
+        routerLinkActive="active"
+      >
+        <img [src]="chat.avatar" alt="avatar" />
 
-  <a routerLink="/nuevo" class="new-chat">+ Nuevo chat</a>
+        <div class="wa-chat-info">
+          <div class="wa-chat-top">
+            <span class="name">{{ chat.name }}</span>
+          </div>
+
+          <div class="wa-chat-bottom">
+            @if (chat.status === 'online') {
+              <span class="status online">en línea</span>
+            } @else {
+              <span class="status offline">últ. vez hace un rato</span>
+            }
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+
+  <!-- BOTÓN NUEVO CHAT -->
+  <a routerLink="/nuevo" class="wa-new-chat">
+    + Nuevo chat
+  </a>
+
 </div>

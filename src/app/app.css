@@ -1,4 +1,17 @@
-.chat-window { display: flex; flex-direction: column; height: 100vh; }
-.messages { flex: 1; padding: 1rem; }
-.bubble { max-width: 70%; padding: .5rem 1rem; border-radius: 10px; }
-.user { margin-left: auto; background: #4caf50; color: white; }
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* PANEL IZQUIERDO */
+.sidebar {
+  width: 320px;
+  border-right: 1px solid #ddd;
+}
+
+/* PANEL DERECHO */
+.content {
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+}

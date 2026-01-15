@@ -1,14 +1,35 @@
-<div class="chat-window">
+<div class="chat-container">
+
+  <!-- HEADER -->
+  <header class="chat-header">
+    <img src="https://i.pravatar.cc/150" alt="avatar" />
+    <div class="chat-info">
+      <h3>Contacto</h3>
+      <span>en línea</span>
+    </div>
+  </header>
+
+  <!-- MENSAJES -->
   <div class="messages">
     @for (msg of messages()[chatId] ?? []; track $index) {
-      <div class="bubble" [class.user]="msg.from === 'user'">
-        {{ msg.text }}
+      <div
+        class="message"
+        [class.user]="msg.from === 'user'"
+        [class.app]="msg.from === 'app'"
+      >
+        <span>{{ msg.text }}</span>
       </div>
     }
   </div>
 
-  <form (ngSubmit)="send()">
-    <input [formControl]="messageControl" placeholder="Escribí un mensaje..." />
-    <button type="submit">Enviar</button>
+  <!-- INPUT -->
+  <form class="chat-input" (ngSubmit)="send()">
+    <input
+      type="text"
+      [formControl]="messageControl"
+      placeholder="Escribí un mensaje"
+    />
+    <button type="submit">➤</button>
   </form>
+
 </div>

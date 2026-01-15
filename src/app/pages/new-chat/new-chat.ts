@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { addChat } from '../../core/store/chat.store';
+import { addChat } from '../../core/store/chat-store/chat-store';
 
 @Component({
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './new-chat.html',
+  styleUrl: './new-chat.css',
 })
 export class NewChatComponent {
   form = new FormGroup({
     name: new FormControl('', Validators.required),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   create() {
     if (this.form.invalid) return;
@@ -25,6 +26,9 @@ export class NewChatComponent {
       status: 'offline',
     });
 
+    this.router.navigate(['/chats']);
+  }
+  volver() {
     this.router.navigate(['/chats']);
   }
 }
