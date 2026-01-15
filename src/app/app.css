@@ -1,0 +1,4 @@
+.chat-window { display: flex; flex-direction: column; height: 100vh; }
+.messages { flex: 1; padding: 1rem; }
+.bubble { max-width: 70%; padding: .5rem 1rem; border-radius: 10px; }
+.user { margin-left: auto; background: #4caf50; color: white; }

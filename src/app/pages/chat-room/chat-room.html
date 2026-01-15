@@ -1,0 +1,14 @@
+<div class="chat-window">
+  <div class="messages">
+    @for (msg of messages()[chatId] ?? []; track $index) {
+      <div class="bubble" [class.user]="msg.from === 'user'">
+        {{ msg.text }}
+      </div>
+    }
+  </div>
+
+  <form (ngSubmit)="send()">
+    <input [formControl]="messageControl" placeholder="Escribí un mensaje..." />
+    <button type="submit">Enviar</button>
+  </form>
+</div>

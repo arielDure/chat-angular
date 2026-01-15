@@ -1,0 +1,20 @@
+<div class="sidebar">
+  <h2>Chats</h2>
+
+  @for (chat of chats(); track chat.id) {
+    <a [routerLink]="['/chats', chat.id]" class="chat-item">
+      <img [src]="chat.avatar" />
+      <div>
+        <strong>{{ chat.name }}</strong>
+
+        @if (chat.status === 'online') {
+          <span class="online">Online</span>
+        } @else {
+          <span class="offline">Offline</span>
+        }
+      </div>
+    </a>
+  }
+
+  <a routerLink="/nuevo" class="new-chat">+ Nuevo chat</a>
+</div>
